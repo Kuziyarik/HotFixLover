@@ -4,18 +4,18 @@ const translations = {
         about: "Hi! I'm Kuziyarik, I code and create content. This is where I share my projects.",
         "support-btn": "Support me",
         "support-text": "Thanks for supporting my projects!",
-        email: "Write to me: <a href=\"mailto:vert1xn@email.com\">vert1xn@email.com</a>",
+        email: "Write to me: <a href=\"mailto:kuziyarikad@gmail.com\">kuziyarikad@gmail.com</a>",
         suggest: "Suggest an idea",
-        footer: "© 2025, all rights belong to Kuziyarik aka Vert1xN"
+        footer: "© 2025, all rights belong to Kuziyarik A.K.A. Vert1xN"
     },
     ru: {
-        tagline: "Разработчик | Креатор",
-        about: "Привет! Я Kuziyarik, пишу код и создаю контент. Здесь делюсь своими проектами.",
+        tagline: "Разработчик | медиа-креатор",
+        about: "Привет! Я Kuziyarik, пишу код и создаю медиа контент. Здесь делюсь своими проектами.",
         "support-btn": "Поддержать меня",
         "support-text": "Спасибо за поддержку моих проектов!",
-        email: "Пиши мне: <a href=\"mailto:vert1xn@email.com\">vert1xn@email.com</a>",
+        email: "Пиши мне: <a href=\"mailto:kuziyarikad@gmail.com\">kuziyarikad@gmail.com</a>",
         suggest: "Предложить идею",
-        footer: "© 2025, все права принадлежат Kuziyarik aka Vert1xN"
+        footer: "© 2025, все права принадлежат Kuziyarik ТИК Vert1xN"
     }
 };
 
