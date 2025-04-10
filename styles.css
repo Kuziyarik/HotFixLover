@@ -199,7 +199,7 @@ body {
     color: #fff;
     text-align: center;
     font-family: 'Benzin-Bold';
-    animation: headerAnimation 1.5s infinite;
+    animation: headerAnimation 1.5s infinite alternate;
 }
 @keyframes glow {
     from {
