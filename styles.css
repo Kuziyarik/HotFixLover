@@ -16,11 +16,15 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Benzin-Bold';
+    background-color: #1a1a1a; /* Темный фон */
+    color: #fff;
 }
+
 #content-license {
     font-family: 'license', Arial, sans-serif;
     font-size: small;
 }
+
 /* Стили для анимации текста */
 .content-text {
     font-size: 1.1rem;
@@ -52,12 +56,68 @@ body {
     }
 }
 
+/* Фиксированная шапка */
+.shapka {
+    position: fixed; /* Фиксируем шапку */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 40px;
+    background: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
+    backdrop-filter: blur(10px); /* Эффект размытия фона */
+    z-index: 1000; /* Чтобы шапка была поверх контента */
+}
+
+/* Контент шапки */
+.shapka-content {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Выравнивание вправо */
+    gap: 20px;
+}
+
+/* Контактная информация (тонкий белый шрифт) */
+.contact-info p {
+    color: #fff; /* Белый цвет */
+    font-size: 14px;
+    font-weight: 300; /* Тонкий шрифт */
+    letter-spacing: 0.5px;
+}
+
+/* Копирайт (тонкий белый шрифт) */
+.copyright p {
+    color: #fff; /* Белый цвет */
+    font-size: 14px;
+    font-weight: 300; /* Тонкий шрифт */
+    letter-spacing: 0.5px;
+}
+
+/* Кнопка поддержки (оранжевая с свечением) */
+.support-button {
+    background-color: #ff6f00; /* Приятный оранжевый цвет */
+    color: #fff;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 20px; /* Скругленные углы */
+    font-size: 14px;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 111, 0, 0.5); /* Свечение */
+}
+
+.support-button:hover {
+    background-color: #ff8c00; /* Чуть светлее при наведении */
+    box-shadow: 0 0 15px rgba(255, 111, 0, 0.8); /* Усиленное свечение */
+}
+
+/* Контейнер с контентом */
 .fade-container {
     position: relative;
     width: 100%;
     height: 100vh;
     background: linear-gradient(to right, #1a2525, #5a6a6a); /* CSS-градиент вместо изображения */
     overflow: hidden;
+    padding-top: 60px; /* Отступ сверху, чтобы не перекрывать шапку */
 }
 
 .overlay {
@@ -166,10 +226,11 @@ body {
     color: #ffffff;
     animation: glow 1.5s ease-in-out;
 }
+
 .tab-button.active:hover {
     color: #ffffff;
-    
 }
+
 .tab-button:hover {
     color: #ffffff;
     animation: glow 1.5s infinite alternate;
@@ -192,6 +253,7 @@ body {
     text-align: center;
     font-family: 'Benzin-Bold', Arial, sans-serif;
 }
+
 .header {
     font-size: 4rem;
     text-shadow: 0px 0px 10px white;
@@ -201,22 +263,25 @@ body {
     font-family: 'Benzin-Bold';
     animation: headerAnimation 1.5s infinite alternate;
 }
+
 @keyframes glow {
     from {
-        text-shadow: 0 0 3px #fff
+        text-shadow: 0 0 3px #fff;
     }
     to {
-        text-shadow: 0 0 7px #fff
+        text-shadow: 0 0 7px #fff;
     }
 }
+
 @keyframes headerAnimation {
     from {
-        text-shadow: 0 0 10px #ffffff81
+        text-shadow: 0 0 10px #ffffff81;
     }
     to {
-        text-shadow: 0 0 20px #ffffff62
+        text-shadow: 0 0 20px #ffffff62;
     }
 }
+
 .credits-button {
     background: rgba(0, 0, 0, 0.9);
     color: #fff;
@@ -231,8 +296,4 @@ body {
     gap: 10px;
     transition: background 0.3s ease;
     flex: 1;
-   
-
-    
-    
 }

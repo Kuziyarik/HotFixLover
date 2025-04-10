@@ -35,7 +35,7 @@ function showContent(page) {
     });
 }
 
-// Эффект fade и blur при прокрутке (оставляем без изменений)
+// Эффект fade и blur при прокрутке
 window.addEventListener('scroll', function() {
     const overlay = document.querySelector('.overlay');
     const scrollPosition = window.scrollY;
