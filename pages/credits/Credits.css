@@ -1,0 +1,27 @@
+
+@font-face {
+    font-family: 'Benzin-Bold';
+    src: url('fonts/Benzin-Bold.otf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'license';
+    src: url('fonts/license.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+#YsabeauSC-VariableFont {
+  font-family: "license", sans-serif;
+
+}
+
+#Benzin-Bold {
+  font-family: "Benzin-Bold", sans-serif;
+
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Benzin-Bold', Arial, sans-serif;
+}

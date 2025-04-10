@@ -1,38 +1,55 @@
-const translations = {
-    en: {
-        tagline: "Developer | Creator",
-        about: "Hi! I'm Kuziyarik, I code and create content. This is where I share my projects.",
-        "support-btn": "Support me",
-        "support-text": "Thanks for supporting my projects!",
-        email: "Write to me: <a href=\"mailto:kuziyarikad@gmail.com\">kuziyarikad@gmail.com</a>",
-        suggest: "Suggest an idea",
-        footer: "© 2025, all rights belong to Kuziyarik A.K.A. Vert1xN"
-    },
-    ru: {
-        tagline: "Разработчик | медиа-креатор",
-        about: "Привет! Я Kuziyarik, пишу код и создаю медиа контент. Здесь делюсь своими проектами.",
-        "support-btn": "Поддержать меня",
-        "support-text": "Спасибо за поддержку моих проектов!",
-        email: "Пиши мне: <a href=\"mailto:kuziyarikad@gmail.com\">kuziyarikad@gmail.com</a>",
-        suggest: "Предложить идею",
-        footer: "© 2025, все права принадлежат Kuziyarik ТИК Vert1xN"
-    }
-};
+// Переключение контента с анимацией
+function showContent(page) {
+    const aboutContent = document.getElementById('content-about');
+    const licenseContent = document.getElementById('content-license');
+    const buttons = document.querySelectorAll('.tab-button');
+    const activeContent = page === 'about' ? aboutContent : licenseContent;
+    const inactiveContent = page === 'about' ? licenseContent : aboutContent;
 
-let currentLang = 'en';
+    // Сначала размываем и скрываем текущий контент
+    activeContent.classList.add('blur-out');
+    inactiveContent.classList.add('blur-out');
 
-function setLanguage(lang) {
-    currentLang = lang;
-    document.querySelectorAll('[data-key]').forEach(element => {
-        const key = element.getAttribute('data-key');
-        element.innerHTML = translations[lang][key];
+    // Через 500мс меняем видимость и показываем новый контент
+    setTimeout(() => {
+        // Скрываем неактивный контент
+        inactiveContent.style.display = 'none';
+        activeContent.style.display = 'flex';
+
+        // Убираем размытие у старого и добавляем анимацию появления нового
+        activeContent.classList.remove('blur-out');
+        activeContent.classList.add('blur-in');
+
+        // Убираем класс анимации после её завершения
+        setTimeout(() => {
+            activeContent.classList.remove('blur-in');
+        }, 500);
+    }, 500);
+
+    // Обновляем активную вкладку
+    buttons.forEach(button => {
+        button.classList.remove('active');
+        if (button.textContent.toLowerCase().includes(page)) {
+            button.classList.add('active');
+        }
     });
-    document.documentElement.lang = lang;
 }
 
-window.onload = () => {
-    const browserLang = navigator.language.slice(0, 2); // Get the first two characters of the browser language
-    const supportedLangs = Object.keys(translations); // Get supported languages
-    const defaultLang = supportedLangs.includes(browserLang) ? browserLang : 'en'; // Fallback to 'en' if not supported
-    setLanguage(defaultLang);
-};
+// Эффект fade и blur при прокрутке (оставляем без изменений)
+window.addEventListener('scroll', function() {
+    const overlay = document.querySelector('.overlay');
+    const scrollPosition = window.scrollY;
+    const windowHeight = window.innerHeight;
+    
+    let blur = (scrollPosition / windowHeight) * 10;
+    let brightness = 100 - (scrollPosition / windowHeight) * 100;
+    let opacity = 1 - (scrollPosition / windowHeight);
+    
+    if (brightness >= 0) {
+        overlay.style.filter = `brightness(${brightness}%) blur(${blur}px)`;
+        overlay.style.opacity = opacity;
+    } else {
+        overlay.style.filter = 'brightness(0%) blur(10px)';
+        overlay.style.opacity = 0;
+    }
+});

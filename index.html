@@ -1,53 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kuziyarik aka Vert1xN</title>
+    <title>Плавный переход</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Kuziyarik aka Vert1xN</h1>
-        <p data-key="tagline">Developer | Creator</p>
-    </header>
+  
+  
+        <div class="fade-container">
+            <div class="overlay">
+                <div class="header">
+                    <h1 class="name">KUZIYARIK</h1>
+                </div>
+                <div class="text-box">
+                    <div class="url-buttons">
+                        <button class="url-button">
+                            <img src="github-icon.png" alt="GitHub Icon" class="button-icon"> EXAMPLE URL
+                        </button>
+                        <button class="url-button">
+                            <img src="github-icon.png" alt="GitHub Icon" class="button-icon"> EXAMPLE URL
+                        </button>
+                        <button class="url-button">
+                            <img src="github-icon.png" alt="GitHub Icon" class="button-icon"> EXAMPLE URL
+                        </button>
+                        <button class="url-button">
+                            <img src="github-icon.png" alt="GitHub Icon" class="button-icon"> EXAMPLE URL
+                        </button>
+                    </div>
+                    <div class="tabs">
+                        <button class="tab-button active" onclick="showContent('about')">ABOUT ME</button>
+                        <button class="tab-button" onclick="showContent('license')">LICENSE</button>
+                    </div>
+                    <div id="content-about" class="content-text">
+                        <p>МЕНЯ ЗОВУТ КУЗИЯРИК, Я СОЗДАЮ КРУТЫЕ ПРОЕКТЫ!</p>
+                    </div>
+                    <div id="content-license" class="content-text" style="display: none;">
+                        <p>Авторское право © 2025 Vert1xN (Kuziyarik)
 
-    <section class="about">
-        <p data-key="about">Hi! I'm Kuziyarik, I code and create content. This is where I share my projects.</p>
-    </section>
-
-    <section class="socials">
-        <button onclick="window.open('https://t.me/Vert1xn_ofc', '_blank')">Telegram</button>
-        <button onclick="window.open('https://github.com/Kuziyarik', '_blank')">GitHub</button>
-        <button onclick="window.open('https://www.youtube.com/@Vert1xN_off', '_blank')">youtube</button>
-    </section>
-
-    <section class="support">
-        <a href="https://boosty.to/vert1xn" target="_blank" class="support-btn" data-key="support-btn">Support me</a>
-        <p data-key="support-text">Thanks for supporting my projects!</p>
-    </section>
-
-    <section class="contacts">
-        <p data-key="email">Write to me: <a href="mailto:kuziyarikad@gmail.com">My work email</a></p>
-        <p><a href="https://t.me/KuziyarikAD_Bot" target="_blank" data-key="suggest">Suggest an idea</a></p>
-    </section>
-
-    <footer>
-        <p data-key="footer">© 2025, all rights belong to Kuziyarik aka Vert1xN</p>
-        <p>WARNING! THIS WEBSITE IS CREATING</p>
-    </footer>
-
-    <!-- Переключатель языка с иконкой PNG -->
-    <div class="lang-switcher">
-        <button class="lang-btn">
-            <img src="globe.png" alt="Language" class="globe-icon">
-        </button>
-        <div class="lang-dropdown">
-            <button onclick="setLanguage('en')">EN</button>
-            <button onclick="setLanguage('ru')">RU</button>
+                            Программное обеспечение, контент и сопутствующие документационные файлы (далее — «Работа») являются исключительной собственностью Vert1xN, также известного как Kuziyarik (далее — «Автор»). Все права, включая, но не ограничиваясь, правами интеллектуальной собственности, сохраняются за Автором.
+                            
+                            Настоящим предоставляется разрешение, бесплатно, любому лицу или организации просматривать Работу исключительно в личных, некоммерческих целях при условии, что такое ознакомление не подразумевает копирование, изменение или распространение Работы в любой форме. Никакие другие права или лицензии — явные, подразумеваемые или иные — не предоставляются для использования, копирования, изменения, объединения, публикации, распространения, сублицензирования, продажи или иного коммерческого использования Работы без предварительного письменного согласия Автора.
+                            
+                            Любое несанкционированное копирование, воспроизведение, изменение, распространение или коммерческое использование Работы, полностью или частично, строго запрещено и может повлечь за собой юридическую ответственность.
+                            
+                            По вопросам разрешений, лицензирования или дополнительной информации, пожалуйста, обращайтесь к Автору по адресу: kuziyarikad@gmail.com.</p>
+                            <a href="/pages/credits/Credits.htm" class="credits-button">Credits</a>
+                    </div>
+                </div>
+            </div>
         </div>
+   
+    <div class="main-content">
+        <h1>ОСНОВНОЙ КОНТЕНТ</h1>
+        <p>ЭТО ОСНОВНОЙ КОНТЕНТ, КОТОРЫЙ ПОЯВЛЯЕТСЯ ПОСЛЕ ПРОКРУТКИ.</p>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,82 +1,219 @@
+/* Подключение шрифта */
+@font-face {
+    font-family: 'Benzin-Bold';
+    src: url('fonts/Benzin-Bold.otf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'license';
+    src: url('fonts/license.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
-    text-align: center;
+    padding: 0;
+    font-family: 'Benzin-Bold', Arial, sans-serif;
+}
+#content-license {
+    font-family: 'license', Arial, sans-serif;
+    font-size: small;
+}
+/* Стили для анимации текста */
+.content-text {
+    font-size: 1.1rem;
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 20px;
+    transition: all 0.5s ease; /* Плавный переход для размытия и прозрачности */
 }
 
-header, section, footer {
-    margin-bottom: 20px;
-}
-.socials button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 5px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+.blur-out {
+    filter: blur(5px);
+    opacity: 0;
 }
 
-.socials button:hover {
-    background-color: #0056b3;
-}
-.support-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #ff6600;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+.blur-in {
+    animation: blurIn 0.5s ease forwards;
 }
 
-/* Стили для переключателя языка */
-.lang-switcher {
-    position: fixed;
-    top: 10px;
-    right: 10px;
+@keyframes blurIn {
+    0% {
+        filter: blur(5px);
+        opacity: 0;
+    }
+    100% {
+        filter: blur(0);
+        opacity: 1;
+    }
 }
 
-.lang-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-}
-
-.globe-icon {
-    width: 24px; /* Размер иконки PNG */
-    height: 24px;
-    vertical-align: middle; /* Центрирование */
-}
-
-.lang-dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
+.fade-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to right, #1a2525, #5a6a6a); /* CSS-градиент вместо изображения */
     overflow: hidden;
 }
 
-.lang-switcher:hover .lang-dropdown {
-    display: block;
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: filter 0.1s ease, opacity 0.1s ease;
 }
 
-.lang-dropdown button {
-    display: block;
-    width: 50px;
-    padding: 5px;
-    border: none;
-    background-color: #f0f0f0;
-    cursor: pointer;
+.text-box {
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 0;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 1000px;
+    height: 50vh;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #fff;
 }
 
-.lang-dropdown button:hover {
-    background-color: #ddd;
+.url-buttons {
+    display: flex;
+    gap: 1px;
+    border-bottom: 1px solid #fff;
+}
+
+.url-button {
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    border: none;
+    padding: 15px 30px; /* Увеличиваем высоту кнопок */
+    border-radius: 0;
+    cursor: pointer;
+    font-family: 'Benzin-Bold', Arial, sans-serif;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.3s ease;
+    flex: 1;
+    border-right: 1px solid #fff;
+}
+
+.url-button:first-child {
+    border-top-left-radius: 15px;
+}
+
+.url-button:last-child {
+    border-top-right-radius: 15px;
+    border-right: none;
+}
+
+.url-button:hover {
+    background: rgba(50, 50, 50, 0.9);
+}
+
+.button-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    border-bottom: 1px solid #fff;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    color: #9b9b9b;
+    font-family: 'Benzin-Bold', Arial, sans-serif;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: color 0.3s ease;
+    position: relative;
+    flex: 11; /* Вкладки равномерно занимают ширину */
+    text-align: center; /* Центрируем текст */
+}
+
+.tab-button:first-child::after {
+    content: '';
+    position: absolute;
+    right: 0; /* Перегородка строго между вкладками */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 20px; /* Уменьшаем высоту, чтобы совпадала с перегородками кнопок */
+    background: #fff;
+}
+
+.tab-button.active {
+    color: #ffffff;
+    animation: glow 1.5s ease-in-out;
+}
+.tab-button.active:hover {
+    color: #ffffff;
+    
+}
+.tab-button:hover {
+    color: #ffffff;
+    animation: glow 1.5s infinite alternate;
+}
+
+.content-text {
+    font-size: 1.2rem;
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.main-content {
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Benzin-Bold', Arial, sans-serif;
+}
+.header {
+    font-size: 4rem;
+    text-shadow: 0px 0px 10px white;
+    margin-bottom: 10px;
+    color: #fff;
+    text-align: center;
+    font-family: 'Benzin-Bold';
+    animation: headerAnimation 1.5s infinite;
+}
+@keyframes glow {
+    from {
+        text-shadow: 0 0 3px #fff
+    }
+    to {
+        text-shadow: 0 0 7px #fff
+    }
+}
+@keyframes headerAnimation {
+    from {
+        text-shadow: 0 0 10px #ffffff81
+    }
+    to {
+        text-shadow: 0 0 20px #ffffff62
+    }
 }
