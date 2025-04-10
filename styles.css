@@ -1,7 +1,7 @@
 /* Подключение шрифта */
 @font-face {
     font-family: 'Benzin-Bold';
-    src: url('fonts/Benzin-Bold.ttf') format('truetype');
+    src: url('fonts/benzin-bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }
