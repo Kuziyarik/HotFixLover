@@ -30,4 +30,9 @@ function setLanguage(lang) {
     document.documentElement.lang = lang;
 }
 
-window.onload = () => setLanguage('en');
+window.onload = () => {
+    const browserLang = navigator.language.slice(0, 2); // Get the first two characters of the browser language
+    const supportedLangs = Object.keys(translations); // Get supported languages
+    const defaultLang = supportedLangs.includes(browserLang) ? browserLang : 'en'; // Fallback to 'en' if not supported
+    setLanguage(defaultLang);
+};
