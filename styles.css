@@ -386,12 +386,12 @@ body {
 }
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr); /* 2 items per line */
     gap: clamp(15px, 2vmin, 25px);
     padding: clamp(15px, 2vmin, 25px);
-  }
-  
-  .product-card {
+}
+
+.product-card {
     display: flex;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
@@ -403,13 +403,15 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), /* Тень для глубины */
                 0 0 15px rgba(255, 255, 255, 0.2), /* Мягкое белое свечение */
                 0 0 25px rgba(0, 170, 255, 0.1); /* Легкое голубое свечение */
-  }
-  @supports not (backdrop-filter: blur(10px)) {
+}
+
+@supports not (backdrop-filter: blur(10px)) {
     .product-card {
-      background: rgba(74, 74, 74, 0.5); /* Запасной серый фон */
+        background: rgba(74, 74, 74, 0.5); /* Запасной серый фон */
     }
-  }
-  .product-card::before {
+}
+
+.product-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -417,14 +419,14 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0) 50%
+        135deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0) 50%
     );
     pointer-events: none;
-  }
-  
-  .product-card::after {
+}
+
+.product-card::after {
     content: '';
     position: absolute;
     top: 0;
@@ -434,27 +436,28 @@ body {
     background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CjxyZWN0IHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iMC4wNSIvPgo8ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC42NSIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPgo8cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbHRlcj0idXJsKCNuKSIgb3BhY2l0eT0iMC4yIi8+Cjwvc3ZnPg==');
     opacity: 0.2;
     pointer-events: none;
-  }
-  
-  .product-card:hover {
+}
+
+.product-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), /* Усиливаем тень */
                 0 0 25px rgba(255, 255, 255, 0.4), /* Усиливаем белое свечение */
                 0 0 35px rgba(0, 170, 255, 0.2); /* Усиливаем голубое свечение */
-  }
-  .product-image-container {
+}
+
+.product-image-container {
     flex: 0 0 40%; /* Изображение занимает 40% ширины карточки */
     background: #000; /* Черный фон для области изображения */
-  }
-  
-  .product-image-container img {
+}
+
+.product-image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover; /* Изображение заполняет контейнер */
     display: block;
-  }
-  
-  .no-image-placeholder {
+}
+
+.no-image-placeholder {
     width: 100%;
     height: 100%;
     background: #333; /* Темный фон для заглушки, если нет изображения */
@@ -464,16 +467,17 @@ body {
     color: #fff;
     font-size: clamp(0.8rem, 1.5vmin, 1rem);
     text-align: center;
-  }
-  
- .product-info p {
-  font-family: 'Roboto', Arial, sans-serif; /* Roboto для описания */
-  font-weight: 400; /* Обычный вес */
-  font-size: clamp(0.8rem, 1.5vmin, 1rem);
-  color: #ccc;
-  margin: 0 0 clamp(10px, 2vmin, 15px);
-  line-height: 1.4;
 }
+
+.product-info p {
+    font-family: 'Roboto', Arial, sans-serif; /* Roboto для описания */
+    font-weight: 400; /* Обычный вес */
+    font-size: clamp(0.8rem, 1.5vmin, 1rem);
+    color: #ccc;
+    margin: 0 0 clamp(10px, 2vmin, 15px);
+    line-height: 1.4;
+}
+
   
   .product-info h3 {
     font-family: 'Benzin-Bold', Arial, sans-serif;
@@ -487,12 +491,12 @@ body {
     font-weight: 400; /* Обычный вес */
     font-size: clamp(0.8rem, 1.5vmin, 1rem);
     color: #ccc;
-    margin: 0 0 clamp(10px, 2vmin, 15px);
+    margin: 0 0 clamp(11px, 3vmin, 16px);
     line-height: 1.4;
   }
   
   .product-button {
-    align-self: flex-end;
+    align-self: flex;
     background: #00aaff; /* Синий цвет кнопки */
     color: #fff;
     padding: clamp(5px, 1vmin, 8px) clamp(10px, 2vmin, 15px);
@@ -530,3 +534,4 @@ body {
       transform: translateY(-3px); /* На маленьких экранах убираем смещение вправо */
     }
   }
+  

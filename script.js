@@ -54,18 +54,63 @@ window.addEventListener('scroll', function() {
     }
 });
 const products = [
-    {
-      id: 1,
-      title: "Тралалело тралала",
-      description: "Парквалело парквала",
-      link: "/pages/products/proga1.html",
-      image: "images/proga1.png"
-    },
-    {
-      
-    }
-    // Добавляйте новые продукты сюда
-  ];
+  {
+    id: 1,
+    title: "Тралалело тралала",
+    description: "Парквалело парквала",
+    link: "/pages/products/proga1.html",
+    image: "images/proga1.png"
+  },
+  {
+    id: 2,
+    title: "Тралалело тралала",
+    description: "Парквалело парквала",
+    link: "/pages/products/proga1.html",
+    image: "images/proga1.png"
+  },
+  {
+    id: 3,
+    title: "Пример продукта 3",
+    description: "Описание продукта 3",
+    link: "/pages/products/proga3.html",
+    image: "images/proga3.png"
+  },
+  {
+    id: 4,
+    title: "Пример продукта 4",
+    description: "Описание продукта 4",
+    link: "/pages/products/proga4.html",
+    image: "images/proga4.png"
+  },
+  {
+    id: 5,
+    title: "Пример продукта 5",
+    description: "Описание продукта 5",
+    link: "/pages/products/proga5.html",
+    image: "images/proga5.png"
+  },
+  {
+    id: 6,
+    title: "Пример продукта 6",
+    description: "Описание продукта 6",
+    link: "/pages/products/proga6.html",
+    image: "images/proga6.png"
+  },
+  {
+    id: 7,
+    title: "Пример продукта 7",
+    description: "Описание продукта 7",
+    link: "/pages/products/proga7.html",
+    image: "images/proga7.png"
+  },
+  {
+    id: 8,
+    title: "Пример продукта 8",
+    description: "Описание продукта 8",
+    link: "/pages/products/proga8.html",
+    image: "images/proga8.png"
+  }
+];
   document.addEventListener('DOMContentLoaded', () => {
     const productsList = document.getElementById('products-list');
     if (productsList) {
