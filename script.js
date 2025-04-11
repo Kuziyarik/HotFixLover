@@ -41,7 +41,7 @@ window.addEventListener('scroll', function() {
     const scrollPosition = window.scrollY;
     const windowHeight = window.innerHeight;
     
-    let blur = (scrollPosition / windowHeight) * 10;
+    let blur = (scrollPosition / windowHeight) * 1;
     let brightness = 100 - (scrollPosition / windowHeight) * 100;
     let opacity = 1 - (scrollPosition / windowHeight);
     

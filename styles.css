@@ -15,25 +15,29 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Benzin-Bold';
+    font-family: 'Benzin-Bold', Arial, sans-serif;
     background-color: #1a1a1a; /* Темный фон */
     color: #fff;
 }
 
 #content-license {
     font-family: 'license', Arial, sans-serif;
-    font-size: small;
+    font-size: clamp(0.8rem, 2vmin, 1rem);
 }
 
 /* Стили для анимации текста */
 .content-text {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2.5vmin, 1.2rem);
     flex-grow: 1;
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding-top: 20px;
-    transition: all 0.5s ease; /* Плавный переход для размытия и прозрачности */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: clamp(10px, 3vmin, 20px);
+    line-height: 1.5;
+    overflow-y: auto;
+    max-height: 100%;
+    transition: all 0.5s ease;
 }
 
 .blur-out {
@@ -58,18 +62,18 @@ body {
 
 /* Фиксированная шапка */
 .shapka {
-    position: fixed; /* Фиксируем шапку */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 15px 40px;
+    padding: clamp(5px, 2vmin, 15px) clamp(10px, 3vmin, 40px);
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
-    
-    backdrop-filter: blur(12px) saturate(150%); /* Эффект размытия фона */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Тонкая граница */
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Легкая тень */
-    z-index: 1000; /* Чтобы шапка была поверх контента */
+    backdrop-filter: blur(12px) saturate(150%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
+
 .shapka::before {
     content: '';
     position: absolute;
@@ -77,52 +81,64 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CjxyZWN0IHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iMC4wNSIvPgo8ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC42NSIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPgo8cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbHRlcj0idXJsKCNuKSIgb3BhY2l0eT0iMC4yIi8+Cjwvc3ZnPg=='); /* Текстура шума через SVG */
-    opacity: 0.3; /* Прозрачность шума */
-    pointer-events: none; /* Чтобы текстура не мешала взаимодействию */
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CjxyZWN0IHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iMC4wNSIvPgo8ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC42NSIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPgo8cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbHRlcj0idXJsKCNuKSIgb3BhY2l0eT0iMC4yIi8+Cjwvc3ZnPg==');
+    opacity: 0.3;
+    pointer-events: none;
 }
 
 /* Контент шапки */
 .shapka-content {
     display: flex;
     align-items: center;
-    justify-content: center; /* Выравнивание вправо */
-    gap: 20px;
+    justify-content: center;
+    gap: clamp(5px, 2vmin, 20px);
+    flex-wrap: wrap;
+    text-align: center;
 }
 
-/* Контактная информация (тонкий белый шрифт) */
+/* Контактная информация */
 .contact-info p {
-    color: #fff; /* Белый цвет */
-    font-size: 14px;
-    font-weight: 300; /* Тонкий шрифт */
-    letter-spacing: 0.5px;
-}
-
-/* Копирайт (тонкий белый шрифт) */
-.copyright p {
-    color: #fff; /* Белый цвет */
-    font-size: 14px;
-    font-weight: 300; /* Тонкий шрифт */
-    letter-spacing: 0.5px;
-}
-
-/* Кнопка поддержки (оранжевая с свечением) */
-.support-button {
-    background-color: #ff6f00; /* Приятный оранжевый цвет */
     color: #fff;
-    padding: 8px 16px;
+    font-size: clamp(0.7rem, 1.5vmin, 1rem);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* Копирайт */
+.copyright p {
+    color: #fff;
+    font-size: clamp(0.7rem, 1.5vmin, 1rem);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* Кнопка поддержки */
+.support-button {
+    background-color: #ff6f00;
+    color: #fff;
+    padding: clamp(3px, 1vmin, 8px) clamp(6px, 2vmin, 16px);
     text-decoration: none;
-    border-radius: 20px; /* Скругленные углы */
-    font-size: 14px;
+    border-radius: 20px;
+    font-size: clamp(0.7rem, 1.5vmin, 1rem);
     font-weight: 400;
     transition: all 0.3s ease;
-    box-shadow: 0 0 10px rgba(255, 111, 0, 0.5); /* Свечение */
-    
+    box-shadow: 0 0 10px rgba(255, 111, 0, 0.5);
+    white-space: nowrap;
 }
 
+/* Эффект для кнопки "Поддержать" */
 .support-button:hover {
-    background-color: #ff8c00; /* Чуть светлее при наведении */
-    box-shadow: 0 0 15px rgba(255, 111, 0, 0.8); /* Усиленное свечение */
+    background-color: #ff8c00;
+    box-shadow: 0 0 15px rgba(255, 111, 0, 0.8);
+}
+
+.support-button:active {
+    background-color: #e65c00;
+    box-shadow: 0 0 20px rgba(255, 111, 0, 1);
 }
 
 /* Контейнер с контентом */
@@ -130,9 +146,9 @@ body {
     position: relative;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(to right, #120416, #9e72ac); /* Возвращаем градиент сайта */
+    background: linear-gradient(to right, #120416, #9e72ac);
     overflow: hidden;
-    padding-top: 60px; /* Отступ сверху, чтобы не перекрывать шапку */
+    padding-top: clamp(30px, 5vmin, 60px);
 }
 
 .overlay {
@@ -146,7 +162,7 @@ body {
     justify-content: center;
     align-items: center;
     transition: filter 0.1s ease, opacity 0.1s ease;
-    
+    z-index: 0;
 }
 
 .text-box {
@@ -154,35 +170,40 @@ body {
     color: #fff;
     padding: 0;
     border-radius: 15px;
-    width: 80%;
+    width: clamp(70%, 80vw, 90%);
     max-width: 1000px;
-    height: 50vh;
+    height: auto;
+    min-height: clamp(30vh, 50vmin, 50vh);
     text-align: center;
     display: flex;
     flex-direction: column;
     border: 1px solid #fff;
-
+    position: relative;
+    z-index: 2;
 }
 
 .url-buttons {
     display: flex;
     gap: 1px;
     border-bottom: 1px solid #fff;
+    flex-wrap: wrap; /* Кнопки переносятся на новую строку */
 }
 
 .url-button {
     background: rgba(0, 0, 0, 0.9);
     color: #fff;
     border: none;
-    padding: 15px 30px; /* Увеличиваем высоту кнопок */
+    padding: clamp(6px, 1.5vmin, 15px) clamp(10px, 2vmin, 30px);
     border-radius: 0;
     cursor: pointer;
     font-family: 'Benzin-Bold', Arial, sans-serif;
-    font-size: 1rem;
+    font-size: clamp(0.7rem, 1.8vmin, 1rem);
     display: flex;
     align-items: center;
-    gap: 10px;
-    transition: background 0.3s ease;
+    justify-content: center;
+    gap: clamp(4px, 1vmin, 10px);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    min-width: clamp(80px, 20vmin, 120px);
     flex: 1;
     border-right: 1px solid #fff;
 }
@@ -196,23 +217,29 @@ body {
     border-right: none;
 }
 
+/* Эффект для кнопок URL */
 .url-button:hover {
     background: rgba(50, 50, 50, 0.9);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.url-button:active {
+    background: rgba(70, 70, 70, 0.9);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
 
 .button-icon {
-    width: 31px;
-    height: 31px;
-    margin-right: 8px;
-    /* SVG будет наследовать цвет текста */
+    width: clamp(12px, 2.5vmin, 31px);
+    height: clamp(12px, 2.5vmin, 31px);
+    margin-right: clamp(3px, 0.8vmin, 8px);
     fill: currentColor;
 }
 
 .tabs {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-bottom: 20px;
+    gap: clamp(10px, 2vmin, 20px);
+    margin-bottom: clamp(10px, 2vmin, 20px);
     position: relative;
     border-bottom: 1px solid #fff;
 }
@@ -222,23 +249,23 @@ body {
     border: none;
     color: #9b9b9b;
     font-family: 'Benzin-Bold', Arial, sans-serif;
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 3vmin, 1.5rem);
     cursor: pointer;
-    padding: 10px 20px;
+    padding: clamp(5px, 1.5vmin, 10px) clamp(10px, 2vmin, 20px);
     transition: color 0.3s ease;
     position: relative;
-    flex: 11; /* Вкладки равномерно занимают ширину */
-    text-align: center; /* Центрируем текст */
+    flex: 1;
+    text-align: center;
 }
 
 .tab-button:first-child::after {
     content: '';
     position: absolute;
-    right: 0; /* Перегородка строго между вкладками */
+    right: 0;
     top: 50%;
     transform: translateY(-50%);
     width: 1px;
-    height: 20px; /* Уменьшаем высоту, чтобы совпадала с перегородками кнопок */
+    height: clamp(10px, 2vmin, 20px);
     background: #fff;
 }
 
@@ -251,38 +278,35 @@ body {
     color: #ffffff;
 }
 
+/* Эффект для вкладок (без свечения) */
 .tab-button:hover {
     color: #ffffff;
     animation: glow 1.5s infinite alternate;
 }
 
-.content-text {
-    font-size: 1.2rem;
-    flex-grow: 1;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding-top: 20px;
+.tab-button:active {
+    color: #ffffff;
 }
 
 .main-content {
     background: #000;
     color: #fff;
     min-height: 100vh;
-    padding: 20px;
+    padding: clamp(10px, 3vmin, 20px);
     text-align: center;
-    
     font-family: 'Benzin-Bold', Arial, sans-serif;
 }
 
 .header {
-    font-size: 4rem;
+    font-size: clamp(1rem, 3vmin, 3rem);
     text-shadow: 0px 0px 10px white;
-    margin-bottom: 10px;
+    margin-bottom: clamp(5px, 1vmin, 10px);
     color: #fff;
     text-align: center;
     font-family: 'Benzin-Bold';
     animation: headerAnimation 1.5s infinite alternate;
+    position: relative;
+    z-index: 1;
 }
 
 @keyframes glow {
@@ -307,28 +331,56 @@ body {
     background: rgba(0, 0, 0, 0.9);
     color: #fff;
     border: none;
-    padding: 15px 30px; /* Увеличиваем высоту кнопок */ 
-    border-radius: 0;
+    padding: clamp(5px, 1.5vmin, 10px) clamp(10px, 2vmin, 20px);
+    border-radius: 5px;
     cursor: pointer;
     font-family: 'Benzin-Bold', Arial, sans-serif;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    font-size: clamp(0.8rem, 2vmin, 1rem);
+    display: inline-block;
+    margin: clamp(5px, 1vmin, 10px) auto;
     transition: background 0.3s ease;
-    flex: 1;
 }
+
 @keyframes float-up-down {
     0%, 100% {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-10px); /* Насколько высоко поднимается текст */
+        transform: translateY(clamp(-5px, -1vmin, -10px));
     }
 }
 
-/* Применяем к заголовку */
 .name {
     animation: float-up-down 3s ease-in-out infinite;
     display: inline-block;
+}
+
+/* Минимальные медиа-запросы для экстремальных разрешений */
+@media (max-width: 480px) {
+    .shapka-content {
+        flex-direction: column;
+        gap: clamp(2px, 1vmin, 5px);
+    }
+
+    .text-box {
+        width: 95%;
+    }
+
+    .content-text {
+        max-height: 25vh;
+    }
+
+    .url-button {
+        min-width: clamp(70px, 18vmin, 100px); /* Уменьшаем минимальную ширину для маленьких экранов */
+    }
+}
+
+@media (min-width: 1920px) {
+    .text-box {
+        width: 70%;
+    }
+
+    .content-text {
+        max-height: 60vh;
+    }
 }
