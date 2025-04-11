@@ -63,9 +63,23 @@ body {
     left: 0;
     width: 100%;
     padding: 15px 40px;
-    background: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
-    backdrop-filter: blur(10px); /* Эффект размытия фона */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    
+    backdrop-filter: blur(12px) saturate(150%); /* Эффект размытия фона */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Тонкая граница */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Легкая тень */
     z-index: 1000; /* Чтобы шапка была поверх контента */
+}
+.shapka::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CjxyZWN0IHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iMC4wNSIvPgo8ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC42NSIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPgo8cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbHRlcj0idXJsKCNuKSIgb3BhY2l0eT0iMC4yIi8+Cjwvc3ZnPg=='); /* Текстура шума через SVG */
+    opacity: 0.3; /* Прозрачность шума */
+    pointer-events: none; /* Чтобы текстура не мешала взаимодействию */
 }
 
 /* Контент шапки */
@@ -103,6 +117,7 @@ body {
     font-weight: 400;
     transition: all 0.3s ease;
     box-shadow: 0 0 10px rgba(255, 111, 0, 0.5); /* Свечение */
+    
 }
 
 .support-button:hover {
@@ -115,7 +130,7 @@ body {
     position: relative;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(to right, #1a2525, #5a6a6a); /* CSS-градиент вместо изображения */
+    background: linear-gradient(to right, #120416, #9e72ac); /* Возвращаем градиент сайта */
     overflow: hidden;
     padding-top: 60px; /* Отступ сверху, чтобы не перекрывать шапку */
 }
@@ -131,6 +146,7 @@ body {
     justify-content: center;
     align-items: center;
     transition: filter 0.1s ease, opacity 0.1s ease;
+    
 }
 
 .text-box {
@@ -145,6 +161,7 @@ body {
     display: flex;
     flex-direction: column;
     border: 1px solid #fff;
+
 }
 
 .url-buttons {
@@ -184,8 +201,11 @@ body {
 }
 
 .button-icon {
-    width: 20px;
-    height: 20px;
+    width: 31px;
+    height: 31px;
+    margin-right: 8px;
+    /* SVG будет наследовать цвет текста */
+    fill: currentColor;
 }
 
 .tabs {
@@ -251,6 +271,7 @@ body {
     min-height: 100vh;
     padding: 20px;
     text-align: center;
+    
     font-family: 'Benzin-Bold', Arial, sans-serif;
 }
 
@@ -286,7 +307,7 @@ body {
     background: rgba(0, 0, 0, 0.9);
     color: #fff;
     border: none;
-    padding: 15px 30px; /* Увеличиваем высоту кнопок */
+    padding: 15px 30px; /* Увеличиваем высоту кнопок */ 
     border-radius: 0;
     cursor: pointer;
     font-family: 'Benzin-Bold', Arial, sans-serif;
@@ -296,4 +317,18 @@ body {
     gap: 10px;
     transition: background 0.3s ease;
     flex: 1;
+}
+@keyframes float-up-down {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Насколько высоко поднимается текст */
+    }
+}
+
+/* Применяем к заголовку */
+.name {
+    animation: float-up-down 3s ease-in-out infinite;
+    display: inline-block;
 }
