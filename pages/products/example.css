@@ -1,0 +1,129 @@
+/* Подключение шрифта */
+@font-face {
+    font-family: 'Benzin-Bold';
+    src: url('fonts/benzin-bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'license';
+    src: url('fonts/license.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Benzin-Bold', Arial, sans-serif;
+    background-color: #1a1a1a; /* Темный фон */
+    color: #fff;
+}
+/* Фиксированная шапка */
+.shapka {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: clamp(5px, 2vmin, 15px) clamp(10px, 3vmin, 40px);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    backdrop-filter: blur(12px) saturate(150%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+@supports not (backdrop-filter: blur(12px) saturate(150%)) {
+    .shapka {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: clamp(5px, 2vmin, 15px) clamp(10px, 3vmin, 40px);
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+        
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+}
+.shapka::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CjxyZWN0IHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iMC4wNSIvPgo8ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC42NSIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPgo8cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbHRlcj0idXJsKCNuKSIgb3BhY2l0eT0iMC4yIi8+Cjwvc3ZnPg==');
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Контент шапки */
+.shapka-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(5px, 2vmin, 20px);
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+/* Контактная информация */
+.contact-info p {
+    color: #fff;
+    font-size: clamp(0.7rem, 1.5vmin, 1rem);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    margin: 0;
+    white-space: nowrap;
+}
+/* Кнопка поддержки */
+.support-button {
+    background-color: #ff6f00;
+    color: #fff;
+    padding: clamp(3px, 1vmin, 8px) clamp(6px, 2vmin, 16px);
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: clamp(0.7rem, 1.5vmin, 1rem);
+    font-weight: 400;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 111, 0, 0.5);
+    white-space: nowrap;
+}
+
+/* Эффект для кнопки "Поддержать" */
+.support-button:hover {
+    background-color: #ff8c00;
+    box-shadow: 0 0 15px rgba(255, 111, 0, 0.8);
+}
+
+.support-button:active {
+    background-color: #e65c00;
+    box-shadow: 0 0 20px rgba(255, 111, 0, 1);
+}
+.copyright p {
+    color: #fff;
+    font-size: clamp(0.7rem, 1.5vmin, 1rem);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    margin: 0;
+    white-space: nowrap;
+}
+.card-image {
+    width: 25%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    margin-top: clamp(100px, 4vmin, 200px);
+}
+.text-box {
+    width: 50%;
+    margin-top: auto;
+    text-align: left;
+    padding: clamp(10px, 2vmin, 20px);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}

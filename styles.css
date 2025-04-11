@@ -384,3 +384,149 @@ body {
         max-height: 60vh;
     }
 }
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: clamp(15px, 2vmin, 25px);
+    padding: clamp(15px, 2vmin, 25px);
+  }
+  
+  .product-card {
+    display: flex;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), /* Тень для глубины */
+                0 0 15px rgba(255, 255, 255, 0.2), /* Мягкое белое свечение */
+                0 0 25px rgba(0, 170, 255, 0.1); /* Легкое голубое свечение */
+  }
+  @supports not (backdrop-filter: blur(10px)) {
+    .product-card {
+      background: rgba(74, 74, 74, 0.5); /* Запасной серый фон */
+    }
+  }
+  .product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 50%
+    );
+    pointer-events: none;
+  }
+  
+  .product-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CjxyZWN0IHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iMC4wNSIvPgo8ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC42NSIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPgo8cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbHRlcj0idXJsKCNuKSIgb3BhY2l0eT0iMC4yIi8+Cjwvc3ZnPg==');
+    opacity: 0.2;
+    pointer-events: none;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), /* Усиливаем тень */
+                0 0 25px rgba(255, 255, 255, 0.4), /* Усиливаем белое свечение */
+                0 0 35px rgba(0, 170, 255, 0.2); /* Усиливаем голубое свечение */
+  }
+  .product-image-container {
+    flex: 0 0 40%; /* Изображение занимает 40% ширины карточки */
+    background: #000; /* Черный фон для области изображения */
+  }
+  
+  .product-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Изображение заполняет контейнер */
+    display: block;
+  }
+  
+  .no-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #333; /* Темный фон для заглушки, если нет изображения */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: clamp(0.8rem, 1.5vmin, 1rem);
+    text-align: center;
+  }
+  
+ .product-info p {
+  font-family: 'Roboto', Arial, sans-serif; /* Roboto для описания */
+  font-weight: 400; /* Обычный вес */
+  font-size: clamp(0.8rem, 1.5vmin, 1rem);
+  color: #ccc;
+  margin: 0 0 clamp(10px, 2vmin, 15px);
+  line-height: 1.4;
+}
+  
+  .product-info h3 {
+    font-family: 'Benzin-Bold', Arial, sans-serif;
+    font-size: clamp(1rem, 2vmin, 1.2rem);
+    color: #fff;
+    margin: 0 0 clamp(5px, 1vmin, 10px);
+  }
+  
+  .product-info p {
+    font-family: 'Roboto', Arial, sans-serif; /* Roboto для описания */
+    font-weight: 400; /* Обычный вес */
+    font-size: clamp(0.8rem, 1.5vmin, 1rem);
+    color: #ccc;
+    margin: 0 0 clamp(10px, 2vmin, 15px);
+    line-height: 1.4;
+  }
+  
+  .product-button {
+    align-self: flex-end;
+    background: #00aaff; /* Синий цвет кнопки */
+    color: #fff;
+    padding: clamp(5px, 1vmin, 8px) clamp(10px, 2vmin, 15px);
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: 'Benzin-Bold', Arial, sans-serif;
+    font-size: clamp(0.8rem, 1.5vmin, 1rem);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    position: relative;
+    z-index: 1; /* Чтобы кнопка была выше стеклянного фона */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Начальная тень */
+  }
+  
+  .product-button:hover {
+    transform: translateY(-3px) translateX(3px); /* Смещение вверх и вправо */
+    box-shadow: 0 5px 15px rgba(0, 170, 255, 0.5); /* Свечение и тень при поднятии */
+    background: #0088cc; /* Темнее при наведении */
+  }
+  
+  @media (max-width: 480px) {
+    .product-card {
+      flex-direction: column;
+    }
+  
+    .product-image-container {
+      flex: 0 0 auto;
+      height: 150px;
+    }
+  
+    .product-button {
+      align-self: center;
+    }
+  
+    .product-button:hover {
+      transform: translateY(-3px); /* На маленьких экранах убираем смещение вправо */
+    }
+  }

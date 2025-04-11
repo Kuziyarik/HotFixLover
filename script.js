@@ -53,3 +53,40 @@ window.addEventListener('scroll', function() {
         overlay.style.opacity = 0;
     }
 });
+const products = [
+    {
+      id: 1,
+      title: "Прога 1",
+      description: "Описание первой программы: это крутой инструмент для...",
+      link: "/pages/products/proga1.html",
+      image: "/images/proga1.jpg"
+    },
+    {
+      id: 2,
+      title: "Прога 2",
+      description: "Описание второй программы: помогает в...",
+      link: "/pages/products/proga2.html",
+      image: "/images/proga2.jpg"
+    }
+    // Добавляйте новые продукты сюда
+  ];
+  document.addEventListener('DOMContentLoaded', () => {
+    const productsList = document.getElementById('products-list');
+    if (productsList) {
+      products.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+        productCard.innerHTML = `
+          <div class="product-image-container">
+            ${product.image ? `<img src="${product.image}" alt="${product.title}">` : '<div class="no-image-placeholder"></div>'}
+          </div>
+          <div class="product-info">
+            <h3>${product.title}</h3>
+            <p>${product.description}</p>
+            <a href="${product.link}" class="product-button">Подробнее</a>
+          </div>
+        `;
+        productsList.appendChild(productCard);
+      });
+    }
+  });
