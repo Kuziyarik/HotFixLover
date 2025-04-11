@@ -56,10 +56,10 @@ window.addEventListener('scroll', function() {
 const products = [
     {
       id: 1,
-      title: "Прога 1",
-      description: "Описание первой программы: это крутой инструмент для...",
+      title: "Тралалело тралала",
+      description: "Парквалело парквала",
       link: "/pages/products/proga1.html",
-      image: "/images/proga1.jpg"
+      image: "images/proga1.png"
     },
     {
       id: 2,
