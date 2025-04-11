@@ -62,11 +62,7 @@ const products = [
       image: "images/proga1.png"
     },
     {
-      id: 2,
-      title: "Прога 2",
-      description: "Описание второй программы: помогает в...",
-      link: "/pages/products/proga2.html",
-      image: "/images/proga2.jpg"
+      
     }
     // Добавляйте новые продукты сюда
   ];
