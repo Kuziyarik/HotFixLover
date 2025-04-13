@@ -60,7 +60,7 @@ const products = [
   title: "CrosshairV1nx",
   description: "Приложение, которое позволяет отображать настраиваемый прицел на экране",
   link: "/pages/products/proga1.html",
-  image: "images/proga1.png"
+  image: "images/CrosshairV1nx.png"
 },
 ];
 
