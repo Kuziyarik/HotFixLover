@@ -1,10 +1,4 @@
-/* Подключение шрифта */
-@font-face {
-    font-family: 'Benzin-Bold';
-    src: url('fonts/benzin-bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
+
 @font-face {
     font-family: 'license';
     src: url('fonts/license.ttf') format('truetype');
@@ -15,13 +9,17 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Benzin-Bold', Arial, sans-serif;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    
     background-color: #1a1a1a; /* Темный фон */
     color: #fff;
 }
 
 /* Фиксированная шапка */
 .shapka {
+    
     position: fixed;
     top: 0;
     left: 0;
@@ -32,6 +30,9 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
 }
 
 @supports not (backdrop-filter: blur(12px) saturate(150%)) {
@@ -45,6 +46,9 @@ body {
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         z-index: 1000;
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 900;
     }
 }
 
@@ -58,6 +62,9 @@ body {
     background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CjxyZWN0IHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iMC4wNSIvPgo8ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC42NSIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPgo8cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbHRlcj0idXJsKCNuKSIgb3BhY2l0eT0iMC4yIi8+Cjwvc3ZnPg==');
     opacity: 0.3;
     pointer-events: none;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
 }
 
 /* Контент шапки */
@@ -68,13 +75,18 @@ body {
     gap: clamp(5px, 2vmin, 20px);
     flex-wrap: wrap;
     text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
 }
 
 /* Контактная информация */
 .contact-info p {
     color: #fff;
     font-size: clamp(0.7rem, 1.5vmin, 1rem);
-    font-weight: 300;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
     letter-spacing: 0.5px;
     margin: 0;
     white-space: nowrap;
@@ -88,7 +100,9 @@ body {
     text-decoration: none;
     border-radius: 20px;
     font-size: clamp(0.7rem, 1.5vmin, 1rem);
-    font-weight: 400;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
     transition: all 0.3s ease;
     box-shadow: 0 0 10px rgba(255, 111, 0, 0.5);
     white-space: nowrap;
@@ -108,7 +122,9 @@ body {
 .copyright p {
     color: #fff;
     font-size: clamp(0.7rem, 1.5vmin, 1rem);
-    font-weight: 300;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
     letter-spacing: 0.5px;
     margin: 0;
     white-space: nowrap;
@@ -133,6 +149,9 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 15px;
     box-shadow: 0 8px 32px rgba(109, 109, 109, 0.349);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
 }
 
 @supports not (backdrop-filter: blur(12px) saturate(150%)) {
@@ -144,6 +163,9 @@ body {
         );
         border: 1px solid rgba(255, 255, 255, 0.2);
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 900;
     }
 }
 
@@ -171,6 +193,9 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative; /* Для позиционирования кнопки */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
 }
 
 /* Стили для контейнера заголовка */
@@ -187,6 +212,9 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
 }
 
 /* Стили для описания */
@@ -204,7 +232,9 @@ body {
     padding: clamp(8px, 1.5vmin, 12px) clamp(16px, 3vmin, 24px);
     border: none;
     border-radius: 25px;
-    font-family: 'Benzin-Bold', Arial, sans-serif;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
     font-size: clamp(0.8rem, 1.6vmin, 1.1rem);
     cursor: pointer;
     transition: all 0.3s ease;
